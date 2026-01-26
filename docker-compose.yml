@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  hooeats-api:
+    build: .
+    container_name: hooeats-api
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/restaurant
+      - SPRING_DATASOURCE_USERNAME=manager
+      - SPRING_DATASOURCE_PASSWORD=password123
+    restart: unless-stopped
