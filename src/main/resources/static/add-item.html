@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item - HooEats</title>
+</head>
+<body>
+    <h1>Add Menu Item</h1>
+    <p><a href="/">Back to Menu</a></p>
+
+    <div id="message"></div>
+
+    <form id="add-item-form">
+        <p>
+            <label>Item ID: <input type="text" id="itemId" maxlength="5" required></label>
+        </p>
+        <p>
+            <label>Name: <input type="text" id="name" maxlength="30" required></label>
+        </p>
+        <p>
+            <label>Price: <input type="number" id="price" step="0.01" min="0" required></label>
+        </p>
+        <p>
+            <label>Date Added: <input type="date" id="dateAdded"></label>
+        </p>
+        <p>
+            <button type="submit">Add Item</button>
+        </p>
+    </form>
+
+    <script src="/js/api.js"></script>
+    <script>
+        document.getElementById('add-item-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const message = document.getElementById('message');
+
+            const item = {
+                itemId: document.getElementById('itemId').value.trim(),
+                name: document.getElementById('name').value.trim(),
+                price: parseFloat(document.getElementById('price').value),
+                dateAdded: document.getElementById('dateAdded').value || null
+            };
+
+            try {
+                await API.post('/api/items', item);
+                message.textContent = 'Item added successfully!';
+                this.reset();
+            } catch (error) {
+                message.textContent = 'Error: ' + error.message;
+            }
+        });
+    </script>
+</body>
+</html>
