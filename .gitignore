@@ -1,0 +1,60 @@
+# Generic Java
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files
+*.jar
+*.war
+*.ear
+
+# Virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.next
+pom.xml.bak
+pom.xml.versions
+pom.xml.releaseBackup
+poms/
+*.mvn/
+.m2/
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+.vscode/
+
+# Spring Boot-specific
+/logs/
+*.log
+npm-debug.log
+yeoman-debug.log
+*.pid
+.cache
+
+# Docker
+# Exclude the actual built Docker images and other temporary Docker files
+# but DO NOT ignore the Dockerfile itself, as it is needed for building
+!Dockerfile*
+!docker-compose*.yml
+.dockerignore
+# volumes/ (if you create local volumes that shouldn't be committed)
+
+# Environment and Credentials
+.env
+application*.properties.example
+secrets.yml
+
+# OS-specific
+.DS_Store
+Thumbs.db
